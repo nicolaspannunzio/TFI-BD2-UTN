@@ -13,8 +13,8 @@ async function main() {
 
     // Objeto de prueba
     const productoDePrueba = {
-        nombre: "Pizza de Fugazzeta",
-        precio_unitario: 10300,
+        nombre: "Pizzeta chica salame",
+        precio_unitario: 7300,
         categoria: "Pizzas",
         activo: true
     };
@@ -60,7 +60,7 @@ async function obtenerProductosActivos(db) {
 
 async function actualizarPrecioProducto(db, idProducto, nuevoPrecio) {
     const resultado = await db.collection('productos').updateOne(
-        { _id: new ObjectId(idProducto) },
+        { _id: new ObjectId(idProducto), activo: true },
         { $set: { precio_unitario: nuevoPrecio } }
     );
 
